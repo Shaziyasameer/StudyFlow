@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyFlow - Student Productivity Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <h2>StudyFlow</h2>
+                <p>STUDENT PLANNER</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-heading">MENU</p>
+
+                <a href="#dashboard" class="nav-link active">
+                    <span>⌂</span> Dashboard
+                </a>
+
+                <a href="#tasks" class="nav-link">
+                    <span>✓</span> My Tasks
+                </a>
+
+                <a href="#subjects" class="nav-link">
+                    <span>▤</span> My Subjects
+                </a>
+
+                <a href="#timetable" class="nav-link">
+                    <span>◷</span> Timetable
+                </a>
+
+                <a href="#calendar" class="nav-link">
+                    <span>▦</span> Calendar
+                </a>
+
+                <p class="nav-heading">OTHER</p>
+
+                <a href="#progress" class="nav-link">
+                    <span>↗</span> My Progress
+                </a>
+
+                <a href="#backup" class="nav-link">
+                    <span>⚙</span> Backup & Restore
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>Small steps every day lead to big achievements.</p>
+                <strong>Keep Learning!</strong>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN DASHBOARD -->
+
+        <main class="main-content">
+
+            <!-- TOP HEADER -->
+
+            <header class="top-header">
+
+                <div>
+                    <p class="welcome-label">YOUR PERSONAL STUDY SPACE</p>
+                    <h1 id="dashboard">Welcome to StudyFlow!</h1>
+                    <p>Plan smarter, stay organised and achieve your goals.</p>
+                </div>
+
+                <div class="date-display">
+                    <span>Today</span>
+                    <strong id="todayDate">Your Study Day</strong>
+                </div>
+
+            </header>
+
+
+            <!-- WELCOME BANNER -->
+
+            <section class="welcome-banner">
+
+                <div>
+                    <p class="banner-label">A LITTLE PROGRESS EACH DAY</p>
+
+                    <h2>Make today count!</h2>
+
+                    <p>
+                        Stay focused, complete your tasks and move
+                        closer to your academic goals.
+                    </p>
+
+                    <a href="#tasks" class="banner-link">
+                        View My Tasks →
+                    </a>
+                </div>
+
+                <div class="banner-decoration">
+                    ✨
+                </div>
+
+            </section>
+
+
+            <!-- DASHBOARD STATISTICS -->
+
+            <section class="stats-container">
+
+                <div class="stat-card">
+                    <span class="stat-icon">📚</span>
+                    <h2>Total Tasks</h2>
+                    <p id="totalTasks">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">✓</span>
+                    <h2>Completed Tasks</h2>
+                    <p id="completedTasks">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">⏳</span>
+                    <h2>Pending Tasks</h2>
+                    <p id="pendingTasks">0</p>
+                </div>
+
+            </section>
+
+
+            <!-- PRODUCTIVITY AND PROGRESS -->
+
+            <section class="dashboard-grid" id="progress">
+
+                <div class="card productivity-card">
+
+                    <h2>Weekly Productivity</h2>
+
+                    <p>Your study activity throughout the week.</p>
+
+                    <div id="weeklyChart" class="weekly-chart">
+
+                        <div class="chart-placeholder">
+                            Your weekly productivity chart will appear here.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card progress-card">
+
+                    <h2>Study Progress</h2>
+
+                    <p>Celebrate every completed task.</p>
+
+                    <div class="progress-circle" id="progressCircle">
+
+                        <h3 id="progressPercentage">0%</h3>
+
+                    </div>
+
+                    <p id="progressDetails">
+                        0 out of 0 tasks completed.
+                    </p>
+
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TASKS AND CALENDAR -->
+
+            <section class="dashboard-grid">
+
+                <div class="card" id="tasks">
+
+                    <h2>My Tasks</h2>
+
+                    <p>Keep your assignments organised.</p>
+
+                    <input
+                        type="text"
+                        id="searchTask"
+                        placeholder="Search your tasks..."
+                    >
+
+                    <select id="filterSubject">
+                        <option value="">All Subjects</option>
+                    </select>
+
+                    <select id="filterStatus">
+                        <option value="all">All Tasks</option>
+                        <option value="pending">Pending Tasks</option>
+                        <option value="completed">Completed Tasks</option>
+                    </select>
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Enter your study task"
+                    >
+
+                    <select id="subjectInput">
+                        <option value="">Choose a subject</option>
+                    </select>
+
+                    <label for="dueDateInput">Due Date:</label>
+
+                    <input type="date" id="dueDateInput">
+
+                    <button onclick="addTask()">+ Add Task</button>
+
+                    <ul id="taskList"></ul>
+
+                </div>
+
+
+                <div class="card" id="calendar">
+
+                    <h2>Study Calendar</h2>
+
+                    <p>Keep important study dates in mind.</p>
+
+                    <div id="studyCalendar" class="calendar-placeholder">
+
+                        <p>Your interactive study calendar will appear here.</p>
+
+                    </div>
+
+                    <h3>Upcoming Deadlines</h3>
+
+                    <ul id="upcomingDeadlines"></ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBJECTS AND COMPLETED TASKS -->
+
+            <section class="dashboard-grid">
+
+                <div class="card" id="subjects">
+
+                    <h2>My Subjects</h2>
+
+                    <p>Add and manage your study subjects.</p>
+
+                    <input
+                        type="text"
+                        id="newSubject"
+                        placeholder="Enter a subject name"
+                    >
+
+                    <button onclick="addSubject()">+ Add Subject</button>
+
+                    <ul id="subjectList"></ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>Completed Tasks</h2>
+
+                    <p>Look back at everything you have achieved.</p>
+
+                    <ul id="completedTaskList"></ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- DAILY STUDY TIMETABLE -->
+
+            <section class="card full-width-card" id="timetable">
+
+                <h2>Daily Study Timetable</h2>
+
+                <p>Plan your daily study sessions.</p>
+
+                <input
+                    type="text"
+                    id="studySubject"
+                    placeholder="Enter subject"
+                >
+
+                <input type="date" id="studyDate">
+
+                <label for="startTime">Start Time:</label>
+
+                <input type="time" id="startTime">
+
+                <label for="endTime">End Time:</label>
+
+                <input type="time" id="endTime">
+
+                <button onclick="addStudySession()">
+                    + Add Study Session
+                </button>
+
+                <ul id="studySessionList"></ul>
+
+            </section>
+
+
+            <!-- POMODORO TIMER -->
+
+            <section class="card full-width-card" id="pomodoro">
+
+                <h2>Focus Time</h2>
+
+                <p>
+                    Give your studies your full attention.
+                    Take breaks and stay refreshed.
+                </p>
+
+                <div class="timer-display" id="timerDisplay">
+                    25:00
+                </div>
+
+                <p class="timer-mode" id="timerMode">
+                    Study Session
+                </p>
+
+                <div class="timer-controls">
+
+                    <button id="startTimer">Start</button>
+
+                    <button id="pauseTimer">Pause</button>
+
+                    <button id="resetTimer">Reset</button>
+
+                </div>
+
+                <p class="timer-note">
+                    25 minutes of focus followed by a short break.
+                </p>
+
+            </section>
+
+
+            <!-- BACKUP AND RESTORE -->
+
+            <section class="card full-width-card" id="backup">
+
+                <h2>Backup and Restore</h2>
+
+                <p>
+                    Keep a backup of your tasks, subjects
+                    and timetable.
+                </p>
+
+                <button onclick="downloadBackup()">
+                    Download Backup
+                </button>
+
+                <p>Select your previously downloaded backup file:</p>
+
+                <input
+                    type="file"
+                    id="backupFile"
+                    accept=".json,application/json"
+                >
+
+                <button onclick="restoreBackup()">
+                    Restore Backup
+                </button>
+
+            </section>
+
+
+            <!-- FOOTER -->
+
+            <footer class="dashboard-footer">
+
+                <h2>StudyFlow</h2>
+
+                <p>Plan Smarter. Study Better. Achieve More.</p>
+
+                <p>Made for your learning journey.</p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

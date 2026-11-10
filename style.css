@@ -1,0 +1,901 @@
+
+/* ========================================
+   1. GENERAL PAGE DESIGN
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fff7f3;
+    color: #51434b;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 7px 0;
+    border: 1px solid #f0dce0;
+    border-radius: 10px;
+    background: #fffdfd;
+    color: #51434b;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #d99aaa;
+    box-shadow: 0 0 0 3px #f9e7eb;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #806b73;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h2 {
+    color: #594650;
+    font-size: 20px;
+}
+
+p {
+    color: #8b7a80;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   2. MAIN LAYOUT
+======================================== */
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   3. LEFT SIDEBAR
+======================================== */
+
+.sidebar {
+    width: 245px;
+    min-width: 245px;
+    min-height: 100vh;
+    padding: 30px 20px;
+    background: #fffafa;
+    border-right: 1px solid #f4e6e7;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.brand {
+    padding: 5px 12px 35px;
+}
+
+.brand h2 {
+    margin-bottom: 5px;
+    color: #b8798c;
+    font-size: 27px;
+    letter-spacing: 0.5px;
+}
+
+.brand p {
+    margin: 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #b59ca4;
+}
+
+.nav-heading {
+    margin: 20px 12px 10px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #b6a4aa;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #806d75;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav-link span {
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #f8e6e9;
+    color: #a95f78;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 18px;
+    border-radius: 15px;
+    background: #fff0e9;
+    font-size: 13px;
+}
+
+.sidebar-bottom p {
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.sidebar-bottom strong {
+    color: #b8798c;
+}
+
+
+/* ========================================
+   4. MAIN CONTENT
+======================================== */
+
+.main-content {
+    width: calc(100% - 245px);
+    max-width: 1500px;
+    padding: 35px;
+    margin: 0 auto;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.top-header h1 {
+    margin-bottom: 8px;
+    color: #594650;
+    font-size: 30px;
+}
+
+.top-header p {
+    margin-bottom: 0;
+}
+
+.welcome-label {
+    margin-bottom: 8px;
+    color: #b8798c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.date-display {
+    min-width: 150px;
+    padding: 15px 20px;
+    border: 1px solid #f3e1e3;
+    border-radius: 14px;
+    background: #fff;
+    text-align: center;
+}
+
+.date-display span,
+.date-display strong {
+    display: block;
+}
+
+.date-display span {
+    margin-bottom: 5px;
+    color: #a58f97;
+    font-size: 12px;
+}
+
+.date-display strong {
+    color: #a95f78;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   5. WELCOME BANNER
+======================================== */
+
+.welcome-banner {
+    min-height: 190px;
+    margin-bottom: 25px;
+    padding: 30px 35px;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #f7dfe2, #fbece2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.banner-label {
+    margin-bottom: 10px;
+    color: #a66e7e;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.welcome-banner h2 {
+    margin-bottom: 10px;
+    color: #805364;
+    font-size: 28px;
+}
+
+.welcome-banner p {
+    max-width: 520px;
+    margin-bottom: 15px;
+    color: #886e78;
+}
+
+.banner-link {
+    display: inline-block;
+    padding: 10px 17px;
+    border-radius: 9px;
+    background: #bd8294;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.banner-link:hover {
+    background: #a96c80;
+}
+
+.banner-decoration {
+    padding: 20px;
+    font-size: 75px;
+}
+
+
+/* ========================================
+   6. STATISTICS
+======================================== */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    padding: 22px;
+    border: 1px solid #f2e4e5;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(111, 76, 86, 0.04);
+    transition: 0.2s;
+}
+
+.stat-card:hover,
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(111, 76, 86, 0.09);
+}
+
+.stat-icon {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: #fae9ec;
+    font-size: 18px;
+}
+
+.stat-card h2 {
+    margin: 13px 0 5px;
+    font-size: 14px;
+    color: #927e86;
+}
+
+.stat-card p {
+    margin: 0;
+    color: #a96c80;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   7. DASHBOARD GRID AND CARDS
+======================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 22px;
+    scroll-margin-top: 20px;
+}
+
+.card {
+    min-width: 0;
+    padding: 25px;
+    margin-bottom: 22px;
+    border: 1px solid #f1e4e5;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(111, 76, 86, 0.04);
+    transition: 0.2s;
+    scroll-margin-top: 20px;
+}
+
+.card h2 {
+    margin-bottom: 8px;
+}
+
+.card > p {
+    font-size: 13px;
+}
+
+.full-width-card {
+    width: 100%;
+}
+
+
+/* ========================================
+   8. WEEKLY PRODUCTIVITY CHART
+======================================== */
+
+.weekly-chart {
+    min-height: 220px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 20px 5px 5px;
+}
+
+.chart-placeholder {
+    align-self: center;
+    color: #a58f97;
+    font-size: 13px;
+    text-align: center;
+}
+
+.chart-day {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    height: 190px;
+}
+
+.chart-bar-area {
+    width: 100%;
+    max-width: 38px;
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 9px;
+    background: #fff4f3;
+    overflow: hidden;
+}
+
+.chart-bar {
+    width: 100%;
+    min-height: 4px;
+    border-radius: 9px 9px 0 0;
+    background: linear-gradient(180deg, #dca6b4, #bd8294);
+    transition: height 0.3s;
+}
+
+.chart-day span {
+    color: #95828a;
+    font-size: 11px;
+}
+
+.chart-day strong {
+    color: #a96c80;
+    font-size: 11px;
+}
+
+
+/* ========================================
+   9. STUDY PROGRESS
+======================================== */
+
+.progress-card {
+    text-align: center;
+}
+
+.progress-circle {
+    width: 145px;
+    height: 145px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: conic-gradient(#c58a9b 0%, #f7e9eb 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.progress-circle::before {
+    content: "";
+    position: absolute;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    background: white;
+}
+
+.progress-circle h3 {
+    z-index: 1;
+    margin: 0;
+    color: #a96c80;
+    font-size: 27px;
+}
+
+.progress-bar {
+    height: 9px;
+    margin-top: 17px;
+    border-radius: 20px;
+    background: #f4e7e9;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #c58a9b, #e5b6a8);
+    transition: width 0.4s;
+}
+
+
+/* ========================================
+   10. BUTTONS
+======================================== */
+
+button {
+    padding: 11px 16px;
+    margin: 7px 4px 7px 0;
+    border-radius: 9px;
+    background: #bd8294;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #a96c80;
+}
+
+li button {
+    padding: 7px 10px;
+    margin-left: 8px;
+    font-size: 11px;
+}
+
+li button:last-child {
+    background: #d89a9a;
+}
+
+li button:last-child:hover {
+    background: #c47c7c;
+}
+
+
+/* ========================================
+   11. TASKS, SUBJECTS AND LISTS
+======================================== */
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 9px;
+    background: #fff8f7;
+    color: #68565f;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+li input[type="checkbox"] {
+    width: auto;
+    margin-right: 9px;
+}
+
+li small {
+    color: #a18b94;
+}
+
+#taskList,
+#subjectList,
+#completedTaskList,
+#studySessionList,
+#upcomingDeadlines {
+    margin-top: 15px;
+}
+
+.deadline-overdue {
+    border-left: 4px solid #d77979;
+    background: #fff0ef;
+}
+
+.deadline-today {
+    border-left: 4px solid #e6a35f;
+    background: #fff7e9;
+}
+
+.deadline-upcoming {
+    border-left: 4px solid #86b8a0;
+    background: #f0faf4;
+}
+
+
+/* ========================================
+   12. CALENDAR
+======================================== */
+
+.calendar-placeholder {
+    margin-top: 18px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.calendar-header h3 {
+    margin: 0;
+    color: #805364;
+    font-size: 16px;
+}
+
+.calendar-header button {
+    padding: 7px 12px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 5px;
+}
+
+.calendar-weekday,
+.calendar-day,
+.calendar-empty {
+    min-width: 0;
+    min-height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.calendar-weekday {
+    color: #a18b94;
+    font-weight: 700;
+}
+
+.calendar-day {
+    position: relative;
+    background: #fff7f6;
+    color: #68565f;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    background: #f5dfe4;
+}
+
+.calendar-day.today {
+    background: #bd8294;
+    color: white;
+    font-weight: 700;
+}
+
+.calendar-day.has-event::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #e3a66b;
+}
+
+.calendar-day.today.has-event::after {
+    background: white;
+}
+
+.calendar-day.selected {
+    outline: 2px solid #bd8294;
+}
+
+.calendar-selected-date {
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #fff4f2;
+    color: #805364;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   13. POMODORO TIMER
+======================================== */
+
+#pomodoro {
+    text-align: center;
+    background: linear-gradient(135deg, #fff, #fff4f1);
+}
+
+.timer-display {
+    margin: 25px 0 8px;
+    color: #a96c80;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.timer-mode {
+    color: #987f89;
+    font-weight: 600;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.timer-controls button {
+    min-width: 85px;
+}
+
+#pauseTimer {
+    background: #d6a18d;
+}
+
+#resetTimer {
+    background: #9b8791;
+}
+
+.timer-note {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   14. FOOTER
+======================================== */
+
+.dashboard-footer {
+    padding: 30px 10px 10px;
+    text-align: center;
+}
+
+.dashboard-footer h2 {
+    margin-bottom: 8px;
+    color: #b8798c;
+}
+
+.dashboard-footer p {
+    margin: 5px;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   15. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 205px;
+        min-width: 205px;
+        padding: 25px 14px;
+    }
+
+    .main-content {
+        width: calc(100% - 205px);
+        padding: 25px;
+    }
+
+    .dashboard-grid {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .dashboard-layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 0;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #f4e6e7;
+    }
+
+    .brand {
+        padding: 5px 8px 12px;
+    }
+
+    .brand h2 {
+        font-size: 23px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .nav-heading,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .nav-link {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .nav-link span {
+        font-size: 15px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .top-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .top-header h1 {
+        font-size: 25px;
+    }
+
+    .date-display {
+        width: 100%;
+        text-align: left;
+    }
+
+    .welcome-banner {
+        padding: 22px;
+    }
+
+    .welcome-banner h2 {
+        font-size: 23px;
+    }
+
+    .banner-decoration {
+        font-size: 40px;
+        padding: 5px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 19px;
+    }
+
+    .timer-display {
+        font-size: 52px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .welcome-banner {
+        padding: 17px;
+    }
+
+    .banner-decoration {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 11px;
+    }
+
+    .calendar-grid {
+        gap: 3px;
+    }
+
+    .calendar-weekday,
+    .calendar-day,
+    .calendar-empty {
+        min-height: 32px;
+        font-size: 10px;
+    }
+}
